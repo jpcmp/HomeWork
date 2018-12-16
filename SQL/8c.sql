@@ -1,0 +1,1 @@
+drop view top_five_genres
