@@ -3,10 +3,14 @@ var tableData = data;
 var tbody = d3.select("tbody");
 
 
-function createTable(tbd, body){
-    body.innerHTML = '';
+function createTable(tbd){
+    tbody.innerHTML = '';
+//    var tb = document.getElementById('ufo-table');
+//    while(tb.rows.length > 1) {
+//    tb.deleteRow(1);
+//    }
     tbd.forEach(function(ufo) {
-        var row = body.append("tr");
+        var row = tbody.append("tr");
         Object.entries(ufo).forEach(function([key, value]) {
             var cell = tbody.append("td");
             cell.text(value);
@@ -18,9 +22,7 @@ d3.select("#filter-btn").on("click", function (){
     input = d3.select("#datetime");
     datef = input.property("value");
     var filteredData = tableData.filter(dateSelection => dateSelection.datetime == datef);
-//    var new_tbody = document.createElement('tbody');
-    createTable(filteredData, tbody);
-//    tbody.parentNode.replaceChild(new_tbody, tbody)
+    createTable(filteredData);
 });
 
-createTable(tableData, tbody);
+createTable(tableData);
