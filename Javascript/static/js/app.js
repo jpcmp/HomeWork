@@ -23,6 +23,7 @@ d3.select("#filter-btn").on("click", function (){
     datef = input.property("value");
     var filteredData = tableData.filter(dateSelection => dateSelection.datetime == datef);
     createTable(filteredData);
+    console.log(filteredData)
 });
 
 createTable(tableData);
